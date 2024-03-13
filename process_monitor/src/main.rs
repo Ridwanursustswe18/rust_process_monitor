@@ -29,7 +29,7 @@ fn parse_arguments() -> Result<Monitors, String> {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 3 {
-        return Err("Insufficient arguments provided. Usage: process_monitor -monitorFile <file_path>".to_string());
+        return Err("Insufficient arguments provided. Usage: -monitorFile <file_path>".to_string());
     }
 
 
