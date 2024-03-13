@@ -28,19 +28,16 @@ struct MonitorResult{
 fn parse_arguments() -> Result<Monitors, String> {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 4 {
+    if args.len() < 3 {
         return Err("Insufficient arguments provided. Usage: process_monitor -monitorFile <file_path>".to_string());
     }
 
-    if args[1] != "process_monitor" {
-        return Err("Invalid command. Must start with 'process_monitor'.".to_string());
-    }
 
-    if args[2] != "-monitorFile" {
+    if args[1] != "-monitorFile" {
         return Err("Invalid argument. Second argument must be '-monitorFile'.".to_string());
     }
 
-    let file_path = &args[3];
+    let file_path = &args[2];
     if !file_path.ends_with(".json") {
         return Err("Invalid file format. Must be a JSON file.".to_string());
     }

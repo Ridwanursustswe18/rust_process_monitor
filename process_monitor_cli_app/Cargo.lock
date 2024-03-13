@@ -176,7 +176,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "process_monitor_cli_app"
+name = "process_monitor"
 version = "0.1.0"
 dependencies = [
  "clap",
