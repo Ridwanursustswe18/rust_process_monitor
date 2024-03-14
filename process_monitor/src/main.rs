@@ -55,7 +55,7 @@ fn parse_arguments() -> Result<Monitors, String> {
 }
 
 fn main() {
-    let mut monitors: Monitors;
+    let  monitors: Monitors;
 
     match parse_arguments() {
         Ok(parsed_monitors) => {
@@ -117,13 +117,9 @@ fn store_monitors(shared_monitors: Arc<Mutex<Monitors>>) {
 
 
 fn process_monitors(shared_monitors: Arc<Mutex<Monitors>>) {
-    let start_time = Instant::now();
+   
 
-    loop {
-       
-        if start_time.elapsed() >= Duration::from_secs(300) {
-            break; 
-        }
+  
 
         
         let update_thread = thread::spawn({
@@ -143,7 +139,7 @@ fn process_monitors(shared_monitors: Arc<Mutex<Monitors>>) {
 
         update_thread.join().unwrap();
         store_thread.join().unwrap();
-    }
+    
 }
 
 
